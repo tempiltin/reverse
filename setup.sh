@@ -12,7 +12,7 @@ py_minor=${python_version#*.}
 py_minor=${py_minor%%.*}
 
 if [[ "$py_major" -ne 3 || "$py_minor" -lt 10 || "$py_minor" -gt 12 ]]; then
-    echo "[ERROR] MobSF dependencies require Python 3.10 - 3.12. You have Python ${python_version}."
+    echo "[ERROR] Lochin dependencies require Python 3.10 - 3.12. You have Python ${python_version}."
     exit 1
 fi
 echo "[INSTALL] Found Python ${python_version}"
@@ -48,8 +48,8 @@ bash scripts/clean.sh y
 
 # Database setup and superuser creation
 echo '[INSTALL] Migrating Database'
-export DJANGO_SUPERUSER_USERNAME=mobsf
-export DJANGO_SUPERUSER_PASSWORD=mobsf
+export DJANGO_SUPERUSER_USERNAME=Lochin
+export DJANGO_SUPERUSER_PASSWORD=Lochin
 python3 -m poetry run python manage.py makemigrations
 python3 -m poetry run python manage.py makemigrations StaticAnalyzer
 python3 -m poetry run python manage.py migrate

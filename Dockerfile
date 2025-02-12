@@ -2,12 +2,12 @@
 FROM python:3.12-slim-bookworm
 
 LABEL \
-    name="MobSF" \
+    name="Lochin" \
     author="Ajin Abraham <ajin25@gmail.com>" \
     maintainer="Ajin Abraham <ajin25@gmail.com>" \
     contributor_1="OscarAkaElvis <oscar.alfonso.diaz@gmail.com>" \
     contributor_2="Vincent Nadal <vincent.nadal@orange.fr>" \
-    description="Mobile Security Framework (MobSF) is an automated, all-in-one mobile application (Android/iOS/Windows) pen-testing, malware analysis and security assessment framework capable of performing static and dynamic analysis."
+    description="Mobile Security Framework (Lochin) is an automated, all-in-one mobile application (Android/iOS/Windows) pen-testing, malware analysis and security assessment framework capable of performing static and dynamic analysis."
 
 ENV DEBIAN_FRONTEND=noninteractive \
     LANG=en_US.UTF-8 \
@@ -16,14 +16,14 @@ ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     PYTHONFAULTHANDLER=1 \
-    MOBSF_USER=mobsf \
+    Lochin_USER=Lochin \
     USER_ID=9901 \
-    MOBSF_PLATFORM=docker \
-    MOBSF_ADB_BINARY=/usr/bin/adb \
+    Lochin_PLATFORM=docker \
+    Lochin_ADB_BINARY=/usr/bin/adb \
     JAVA_HOME=/jdk-22.0.2 \
     PATH=/jdk-22.0.2/bin:/root/.local/bin:$PATH \
-    DJANGO_SUPERUSER_USERNAME=mobsf \
-    DJANGO_SUPERUSER_PASSWORD=mobsf
+    DJANGO_SUPERUSER_USERNAME=Lochin \
+    DJANGO_SUPERUSER_PASSWORD=Lochin
 
 # See https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#run
 RUN apt update -y && \
@@ -56,7 +56,7 @@ RUN apt update -y && \
 ARG TARGETPLATFORM
 
 # Install wkhtmltopdf, OpenJDK and jadx
-COPY scripts/dependencies.sh mobsf/MobSF/tools_download.py ./
+COPY scripts/dependencies.sh Lochin/Lochin/tools_download.py ./
 RUN ./dependencies.sh
 
 # Install Python dependencies
@@ -79,21 +79,21 @@ RUN \
     rm -rf /var/lib/apt/lists/* /tmp/* > /dev/null 2>&1
 
 # Copy source code
-WORKDIR /home/mobsf/Mobile-Security-Framework-MobSF
+WORKDIR /home/Lochin/Mobile-Security-Framework-Lochin
 COPY . .
 
 HEALTHCHECK CMD curl --fail http://host.docker.internal:8000/ || exit 1
 
-# Expose MobSF Port and Proxy Port
+# Expose Lochin Port and Proxy Port
 EXPOSE 8000 1337
 
-# Create mobsf user
-RUN groupadd --gid $USER_ID $MOBSF_USER && \
-    useradd $MOBSF_USER --uid $USER_ID --gid $MOBSF_USER --shell /bin/false && \
-    chown -R $MOBSF_USER:$MOBSF_USER /home/mobsf
+# Create Lochin user
+RUN groupadd --gid $USER_ID $Lochin_USER && \
+    useradd $Lochin_USER --uid $USER_ID --gid $Lochin_USER --shell /bin/false && \
+    chown -R $Lochin_USER:$Lochin_USER /home/Lochin
 
-# Switch to mobsf user
-USER $MOBSF_USER
+# Switch to Lochin user
+USER $Lochin_USER
 
-# Run MobSF
-CMD ["/home/mobsf/Mobile-Security-Framework-MobSF/scripts/entrypoint.sh"]
+# Run Lochin
+CMD ["/home/Lochin/Mobile-Security-Framework-Lochin/scripts/entrypoint.sh"]

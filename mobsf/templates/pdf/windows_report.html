@@ -4,8 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>MobSF Static Analysis Report</title>
-    <meta name="description" content="MobSF Report">
+    <title>Lochin Statik Tahlil Hisoboti</title>
+    <meta name="description" content="Lochin Hisobot">
     {% if host_os == 'windows' %}
         <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
@@ -39,8 +39,8 @@
   <body bgcolor="FFFFFF">
     <article id="cover">
       <div class="header">
-        <img src="{{base_url}}{% static "img/mobsf_logo.png" %}" class="center logo" alt="MobSF Logo"/>
-        <div class="htext">WINDOWS STATIC ANALYSIS REPORT </div>
+        <img src="{{base_url}}{% static "img/Lochin_logo.png" %}" class="center logo" alt="Lochin Logo"/>
+        <div class="htext">WINDOWS STATIK TAHLIL HISOBOTI</div>
       </div>
       </br></br></br>
      <div class="app">
@@ -53,22 +53,22 @@
       <div class="container">
       <table class="basic no_border">
       <tr class="no_border">
-        <td class="no_border"><h3>File Name:</h3></td>
+        <td class="no_border"><h3>Fayl Nomi:</h3></td>
         <td class="no_border"><h3>{{file_name}}</h3></td>
       </tr>
       <tr>
-        <td class="no_border"><h3>Publisher:</h3></td>
+        <td class="no_border"><h3>Nashriyotchi:</h3></td>
         <td class="no_border"><h3>{{ publisher_name }}</h3></td>
       </tr>
      
      {% if virus_total and virus_total.items|length > 9 and 'request successfully queued' not in virus_total.verbose_msg %}
         <tr>
-        <td class="no_border"><h3>VirusTotal Detection:</h3></td>
+        <td class="no_border"><h3>VirusTotal Aniqlash:</h3></td>
         <td class="no_border"><h3><span class="{% if virus_total.positives > 0 %}danger{% else %}success{% endif %}"> {{ virus_total.positives }}/{{ virus_total.total }}</span></h3></td>
       </tr>
       {% endif %}
       <tr>
-        <td class="no_border"><h3>Scan Date:</h3></td>
+        <td class="no_border"><h3>Skanerlangan Sana:</h3></td>
         <td class="no_border"><h3>{{ timestamp }}</h3></td>
       </tr>
     </table>
@@ -85,45 +85,45 @@
     <article id="contents">
 
       
-      <h2><i class="fas fa-box-open"></i> FILE INFORMATION</h2>
+      <h2><i class="fas fa-box-open"></i> FAYL MA'LUMOTI</h2>
 
-      <h5>File Name:</h5> {{ file_name }}</br>
-      <h5>Size: </h5> {{ size }}</br>
+      <h5>Fayl Nomi:</h5> {{ file_name }}</br>
+      <h5>Hajmi: </h5> {{ size }}</br>
       <h5>MD5:</h5> {{ md5 }}</br>
       <h5>SHA1:</h5> {{ sha1 }}</br>
       <h5>SHA256:</h5> {{ sha256 }}</br>
      
 
-      <h2><i class="fas fa-info"></i> APP INFORMATION</h2>
+      <h2><i class="fas fa-info"></i> ILOVA MA'LUMOTI</h2>
 
-      <h5>App Name:</h5> {{ app_name }}</br>
-      <h5>Publisher:</h5> {{ publisher_name }}</br>
-      <h5>Version:</h5> {{ app_version }}</br>
-      <h5>Arch:</h5> {{ architecture }}</br>
+      <h5>Ilova Nomi:</h5> {{ app_name }}</br>
+      <h5>Nashriyotchi:</h5> {{ publisher_name }}</br>
+      <h5>Versiya:</h5> {{ app_version }}</br>
+      <h5>Arxitektura:</h5> {{ architecture }}</br>
      
 
-      <h2><i class="fas fa-file-code"></i> XML INFORMATION </h2>
+      <h2><i class="fas fa-file-code"></i> XML MA'LUMOTI </h2>
 
-      <h5>Compiler Version:</h5> {{ compiler_version }}</br>
-      <h5>Visual Studio Version:</h5> {{ visual_studio_version }}</br>
-      <h5>Visual Studio Edition:</h5> {{ visual_studio_edition }}</br>
-      <h5>Target OS:</h5> {{ target_os }}</br>
-      <h5>APPX DLL Version:</h5> {{ appx_dll_version }}</br>
+      <h5>Kompilyator Versiyasi:</h5> {{ compiler_version }}</br>
+      <h5>Visual Studio Versiyasi:</h5> {{ visual_studio_version }}</br>
+      <h5>Visual Studio Noshiri:</h5> {{ visual_studio_edition }}</br>
+      <h5>Ma'qsad OS:</h5> {{ target_os }}</br>
+      <h5>APPX DLL Versiyasi:</h5> {{ appx_dll_version }}</br>
       <h5>Proj GUID:</h5> {{ proj_guid }}</br>
-      <h5>Opti Tool:</h5> {{ opti_tool }}</br>
-      <h5>Target Run:</h5> {{ target_run }}</br>
+      <h5>Opti Asbob:</h5> {{ opti_tool }}</br>
+      <h5>Ma'qsad Ishga Tushirish:</h5> {{ target_run }}</br>
 
 
         {% if virus_total and virus_total.items|length > 9 and 'request successfully queued' not in virus_total.verbose_msg %}
-       <h2><i class="fas fa-spider"></i> VIRUSTOTAL SCAN</h2>
-       <p> <h5>{{ virus_total.positives }} / {{ virus_total.total }}</h5> &nbsp; AVs found this file Malicious! </p>
+       <h2><i class="fas fa-spider"></i> VIRUSTOTAL SKANERI</h2>
+       <p> <h5>{{ virus_total.positives }} / {{ virus_total.total }}</h5> &nbsp; AVlar bu faylni zararli deb topdi! </p>
             {% if virus_total.positives %}
           
                     <table class="basic">
                                     <thead>
                                         <tr>
                                             <th>AV</th>
-                                            <th>DETECTION</th>
+                                            <th>ANIQLASH</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -144,14 +144,14 @@
             {% endif %}
       {% endif %}
       
-      <h2><i class="fas fa-flag"></i> APPX BINARY ANALYSIS</h2>
+      <h2><i class="fas fa-flag"></i> APPX IKKILIK TAHLILI</h2>
        <table class="basic">
                   <thead>
                       <tr>
-                          <th>ISSUE</th>
-                          <th>STATUS</th>
-                          <th>DESCRIPTION</th>
-                          <th>INFO</th>
+                          <th>MUAMMO</th>
+                          <th>HOLAT</th>
+                          <th>TA'RIF</th>
+                          <th>MA'LUMOT</th>
 
                       </tr>
                   </thead>
@@ -191,12 +191,12 @@
                     </tbody>
                     </table>
 
-                    <h2><i class="fas fa-list"></i> SCAN LOGS</h2>
+                    <h2><i class="fas fa-list"></i> SKANERLASH JURNALLARI</h2>
                     <table id="scan_logs" class="basic">
                       <tr>
-                          <th>Timestamp</th>
-                          <th>Event</th>
-                          <th>Error</th>
+                          <th>Vaqt Belgisi</th>
+                          <th>Hodisa</th>
+                          <th>Xato</th>
                       </tr>
                   <tbody>
                     {% for log in logs %}
@@ -226,13 +226,13 @@
     <article id="columns">
       </br>
       <hr>
-      <h3>Report Generated by - MobSF {{ version }} </h3>
+      <h3>Hisobotni Yaratgan - Lochin {{ version }} </h3>
       <section>
         <p>
-          Mobile Security Framework (MobSF) is an automated, all-in-one mobile application (Android/iOS/Windows) pen-testing, malware analysis and security assessment framework capable of performing static and dynamic analysis.
+          Mobil Xavfsizlik Ramkasi (Lochin) avtomatlashtirilgan, hammasi birda mobil ilova (Android/iOS/Windows) pen-test, zararli dasturlar tahlili va xavfsizlik baholash ramkasi bo'lib, statik va dinamik tahlilni amalga oshirish imkoniyatiga ega.
         </p>
         <p>
-        <strong>© {% now "Y" %} Mobile Security Framework - MobSF | <a href="https://ajinabraham.com">Ajin Abraham</a> | <a href="https://opensecurity.in">OpenSecurity</a>.</strong>
+        <strong>© {% now "Y" %} Mobil Xavfsizlik Ramkasi - Lochin | <a href="https://ajinabraham.com">Ajin Abraham</a> | <a href="https://opensecurity.in">OpenSecurity</a>.</strong>
       </p>
       </section>
     </article>

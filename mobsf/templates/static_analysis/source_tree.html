@@ -34,49 +34,49 @@ pre {
             <div class="card">
               <div class="card-body">
                 <h3 class="box-title">{% if source_type == 'java' %}
-                                        <i class="fab fa-java"></i> Java Source</h3>
+                                        <i class="fab fa-java"></i> Java manbasi</h3>
                                       {% elif source_type == 'smali' %}
-                                        <i class="fa fa-code"></i> Smali Source</h3>
+                                        <i class="fa fa-code"></i> Smali manbasi</h3>
                                       {% endif %}
                 <div class="row">
                 <div class="float-right col-4 search-container">
                      <div class="navbar-form navbar-right search-box col-4" >
-                      <strong>Find by filename:</strong> <input type="text" id="filename_search" class="form-control" placeholder="Filename">
+                      <strong>Fayl nomi bo'yicha qidirish:</strong> <input type="text" id="filename_search" class="form-control" placeholder="Fayl nomi">
                     </div>
                      <div class="navbar-form navbar-right search-box col-4" >
-                      <strong>Find by content:</strong> <input type="text" id="content_search" class="form-control" placeholder="Text">
+                      <strong>Kontent bo'yicha qidirish:</strong> <input type="text" id="content_search" class="form-control" placeholder="Matn">
                     </div>
-                    <div class="col-2"><button type="button" id="clear-button" class="btn btn-primary">Clear</button></div>
+                    <div class="col-2"><button type="button" id="clear-button" class="btn btn-primary">Tozalash</button></div>
                 </div>
                  <div class="col-12">
 
-                    <!-- BEGIN: File Frame. -->
+                    <!-- BEGIN: Fayl Freymi. -->
                     <div id="fileframe">
                         <div id="loading-div"><img src="{% static "jsTree/themes/default/throbber.gif" %}" /></div>
-                        <div id="no-results"><strong>No results found</strong></div>
-                        <!-- BEGIN: File Tree. -->
+                        <div id="no-results"><strong>Natijalar topilmadi</strong></div>
+                        <!-- BEGIN: Fayl Darchasi. -->
                         <div id="filetree" class="transparent-effect">
                             <ul>
                                 {% for f in subfiles %}{{ f }}{% endfor %}
                             </ul>
                         </div>
-                        <!-- END: File Tree. -->
+                        <!-- END: Fayl Darchasi. -->
                     </div>
-                    <!-- END: File Frame. -->
-                    <!-- BEGIN: Content Frame. -->
+                    <!-- END: Fayl Freymi. -->
+                    <!-- BEGIN: Kontent Freymi. -->
                     <div id="contentframe">
-                        <!-- BEGIN: Content. -->
+                        <!-- BEGIN: Kontent. -->
                         <div id="content">
                             <h2>
-                                File: <span id="filename"></span>
+                                Fayl: <span id="filename"></span>
                             </h2>
                             <pre id="fileoutput">
                                 <!--<code class="{{ source_type }}" id="fileoutput"></code>-->
                             </pre>
                         </div>
-                        <!-- END: Content. -->
+                        <!-- END: Kontent. -->
                     </div>
-                    <!-- END: Content Frame. -->
+                    <!-- END: Kontent Freymi. -->
                     <!-- Clear floats. -->
                     <div class="clear">
                         <br clear="all" />
@@ -111,7 +111,7 @@ var file_tree = $('#filetree')
     // listen for event
     .on('changed.jstree', function(e, data) {
         var i, j, r = [];
-        console.log('[DEBUG] The selected node is: ' + data.instance.get_node(data.selected[0]).text);
+        console.log('[DEBUG] Tanlangan tugun: ' + data.instance.get_node(data.selected[0]).text);
         for(i = 0, j = data.selected.length; i < j; i++) {
             curr_selected = data.instance.get_node(data.selected[i]);
             if($(curr_selected)[0].li_attr.class == "file") {
@@ -149,7 +149,7 @@ function select_nodes(node_ids) {
 		}
 	}
 }
-// Filename search
+// Fayl nomi bo'yicha qidirish
 var to = false;
 $('#filename_search').keyup(function() {
 	if(to) {
@@ -179,7 +179,7 @@ $('#filename_search').keyup(function() {
 				complete: function(data) {
 					// The response from the server is "double" 'stringified' json
 					response = JSON.parse(JSON.parse(data.responseText));
-					console.log("Filename search ajax response:");
+					console.log("Fayl nomi bo'yicha qidirish ajax javobi:");
 					console.log(response);
 					console.log(response.matches.length);
 					if(response.matches.length) {
@@ -197,7 +197,7 @@ $('#filename_search').keyup(function() {
 	}, 1000);
 });
 
-// Content search
+// Kontent bo'yicha qidirish
 var to_content = false;
 $('#content_search').keyup(function() {
 	if(to_content) {
@@ -229,7 +229,7 @@ $('#content_search').keyup(function() {
 			complete: function(data) {
 				// The response from the server is "double" 'stringified' json
 				response = JSON.parse(JSON.parse(data.responseText));
-				console.log("Content search ajax response:");
+				console.log("Kontent bo'yicha qidirish ajax javobi:");
 				console.log(response);
 				console.log(response.matches.length);
 				if(response.matches.length) {

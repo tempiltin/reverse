@@ -123,7 +123,7 @@ sidebar-collapse
         <div class="row mb-2">
           <div class="col-sm-12">
             <div class="sameline">
-           <h1><img src="{% static "img/mobsf_icon.png" %}" id="mobsf" alt="MobSF"> MobSF Application Security Scorecard
+           <h1><img src="{% static "img/mobsf_icon.png" %}" id="mobsf" alt="MobSF"> MobSF Dasturiy Xavfsizlik Hisoboti
            <img id="app_icon" src="/download/{{ hash }}-icon.png" onerror="this.src='{% static 'img/no_icon.png' %}'"/>
            - {% if app_name %}  {{ app_name }}  {% else %} {{ file_name }} {% endif %} {{ version_name }}
         
@@ -151,7 +151,7 @@ sidebar-collapse
                 <div class="card">
                     <div class="card-header ui-sortable-handle" >
                       <h3 class="card-title">
-                        <i class="fas fa-star-half-alt"></i> Security Score
+                        <i class="fas fa-star-half-alt"></i> Xavfsizlik Bahosi
                       </h3>
                     </div><!-- /.card-header -->
                     <div class="card-body">
@@ -169,7 +169,7 @@ sidebar-collapse
                         {% endif %}
                         ">
                         </br>
-                   <h5>Security Score {{ security_score }}/100</h5></p>
+                   <h5>Xavfsizlik Bahosi {{ security_score }}/100</h5></p>
                       </div>
                     </div><!-- /.card-body -->
                   </div>
@@ -180,7 +180,7 @@ sidebar-collapse
                 <div class="card">
                     <div class="card-header ui-sortable-handle" >
                       <h3 class="card-title">
-                        <i class="fas fa-tachometer-alt"></i> Risk Rating
+                        <i class="fas fa-tachometer-alt"></i> Xavf Reytingi
                       </h3>
                     </div><!-- /.card-header -->
                     <div class="card-body">
@@ -188,7 +188,7 @@ sidebar-collapse
                         <p>
                           <canvas id="risk"></canvas>
                         </br>
-                        <p><h5>Grade</h5></p>
+                        <p><h5>Baho</h5></p>
                         <ol class="risk-level">
                           {% if security_score < 30 %}
                           <li>A</li>
@@ -224,7 +224,7 @@ sidebar-collapse
                     <div class="card-header ui-sortable-handle" >
                       <h3 class="card-title">
                         <i class="fas fa-chart-pie mr-1"></i>
-                        Severity Distribution (%)
+                        Jiddiylik Taqqoslanishi (%)
                       </h3>
                     </div><!-- /.card-header -->
                     <div class="card-body">
@@ -242,7 +242,7 @@ sidebar-collapse
                     <div class="card-header ui-sortable-handle" >
                       <h3 class="card-title">
                         <i class="fas fa-user-secret"></i>
-                        Privacy Risk
+                        Maxfiylik Xavfi
                       </h3>
                     </div><!-- /.card-header -->
                     <div class="card-body">
@@ -258,7 +258,7 @@ sidebar-collapse
                             {% endif %}
                             {{ trackers }} {% else %}"> NA {% endif %}</span>
                         </br>
-                        <h5>{% if total_trackers %} User/Device Trackers {% else %} Not Scanned {% endif %}</h5></p>
+                        <h5>{% if total_trackers %} Foydalanuvchi/Qurilma Kuzatuvchilari {% else %} Tekshirilmagan {% endif %}</h5></p>
                       </div>
                     </div><!-- /.card-body -->
                   </div>
@@ -278,7 +278,7 @@ sidebar-collapse
                     <div class="card">
                         <div class="card-header ui-sortable-handle" >
                           <h3 class="card-title">
-                            <i class="fas fa-file-alt"></i> Findings
+                            <i class="fas fa-file-alt"></i> Topilmalar
                           </h3>
                         </div><!-- /.card-header -->
                         <div class="card-body">
@@ -290,7 +290,7 @@ sidebar-collapse
                                       <span class="info-box-icon bg-danger"><i class="fas fa-bug"></i></span>
                         
                                       <div class="info-box-content">
-                                        <span class="info-box-text">High</span>
+                                        <span class="info-box-text">Yuqori</span>
                                         <span class="info-box-number">{{ high | length}}</span>
                                       </div>
                                       <!-- /.info-box-content -->
@@ -303,7 +303,7 @@ sidebar-collapse
                                       <span class="info-box-icon bg-warning"><i class="fas fa-exclamation-triangle"></i></span>
                         
                                       <div class="info-box-content">
-                                        <span class="info-box-text">Medium</span>
+                                        <span class="info-box-text">O'rta</span>
                                         <span class="info-box-number">{{ warning | length}}</span>
                                       </div>
                                       <!-- /.info-box-content -->
@@ -317,7 +317,7 @@ sidebar-collapse
                                     <span class="info-box-icon bg-info"><i class="fas fa-info"></i></span>
                       
                                     <div class="info-box-content">
-                                      <span class="info-box-text">Info</span>
+                                      <span class="info-box-text">Ma'lumot</span>
                                       <span class="info-box-number">{{ info | length}}</span>
                                     </div>
                                     <!-- /.info-box-content -->
@@ -330,7 +330,7 @@ sidebar-collapse
                                       <span class="info-box-icon bg-success"><i class="fas fa-check"></i></span>
                         
                                       <div class="info-box-content">
-                                        <span class="info-box-text">Secure</span>
+                                        <span class="info-box-text">Xavfsiz</span>
                                         <span class="info-box-number">{{ secure | length}}</span>
                                       </div>
                                       <!-- /.info-box-content -->
@@ -344,7 +344,7 @@ sidebar-collapse
                                   <span class="info-box-icon bg-secondary"><i class="fab fa-searchengin"></i></span>
                     
                                   <div class="info-box-content">
-                                    <span class="info-box-text"> {% if efr01 %}Need to Investigate{% else %}Hotspot{% endif %}</span>
+                                    <span class="info-box-text"> {% if efr01 %}Tekshirish Kerak{% else %}Issiq Nuqta{% endif %}</span>
                                     <span class="info-box-number">{{ hotspot | length}}</span>
                                   </div>
                                   <!-- /.info-box-content -->
@@ -361,7 +361,7 @@ sidebar-collapse
         <div class="sameline">
             <div class="card-header">
                 <h4 class="card-title w-100">
-                    <span class="badge bg-danger">high</span> {{ item.title}} 
+                    <span class="badge bg-danger">yuqori</span> {{ item.title}} 
                 </h4>
             </div>
         <label> {{ item.section | upper }}</label>
@@ -381,7 +381,7 @@ sidebar-collapse
         <div class="sameline">
             <div class="card-header">
                 <h4 class="card-title w-100">
-                    <span class="badge bg-warning">medium</span> {{ item.title}}
+                    <span class="badge bg-warning">o'rta</span> {{ item.title}}
                 </h4>
             </div>
             <label> {{ item.section | upper }}</label>
@@ -401,7 +401,7 @@ sidebar-collapse
         <div class="sameline">
             <div class="card-header">
                 <h4 class="card-title w-100">
-                    <span class="badge bg-info">info</span> {{ item.title}}
+                    <span class="badge bg-info">ma'lumot</span> {{ item.title}}
                 </h4>
             </div>
             <label class="text-right"> {{ item.section | upper }}</label>
@@ -424,7 +424,7 @@ sidebar-collapse
         <div class="sameline">
             <div class="card-header">
                 <h4 class="card-title w-100">
-                    <span class="badge bg-success">secure</span> {{ item.title}}
+                    <span class="badge bg-success">xavfsiz</span> {{ item.title}}
                 </h4>
             </div>
             <label class="text-right"> {{ item.section | upper }}</label>
@@ -446,7 +446,7 @@ sidebar-collapse
         <div class="sameline">
             <div class="card-header">
                 <h4 class="card-title w-100">
-                    <span class="badge bg-secondary">{% if efr01 %}need to investigate{% else %}hotspot{% endif %}</span> {{ item.title}}
+                    <span class="badge bg-secondary">{% if efr01 %}tekshirish kerak{% else %}issiq nuqta{% endif %}</span> {{ item.title}}
                 </h4>
             </div>
             <label class="text-right"> {{ item.section | upper }}</label>
@@ -473,7 +473,7 @@ sidebar-collapse
         <div class="row">
             <div class="col-12 mt-3 text-center">
                 <p class="lead">
-                  <h5> MobSF Application Security Scorecard generated for 
+                  <h5> MobSF Dasturiy Xavfsizlik Hisoboti 
                     <img id="app_icon2" src="/download/{{ hash }}-icon.png" onerror="this.src='{% static 'img/no_icon.png' %}'"/>
                     ({% if app_name %}  {{ app_name }}  {% else %} {{ file_name }} {% endif %} {{ version_name }})
                      {% if '.apk' == file_name|slice:"-4:"%}<i class="fab fa-android"></i>
@@ -543,7 +543,7 @@ sidebar-collapse
         }
     },
     data: {
-        labels: [`High`, `Medium`, `Info`, `Secure`],
+        labels: [`Yuqori`, `O'rta`, `Ma'lumot`, `Xavfsiz`],
         datasets: [{
         backgroundColor: [
             "#dc3545",
@@ -587,7 +587,7 @@ sidebar-collapse
       valueLabel: {
         display: true,
         formatter: (value) => {
-          return '{% if security_score < 30 %}Critical Risk{% elif security_score < 40 %}High Risk{% elif security_score < 60 %}Medium Risk{% else %}Low Risk{% endif %}';
+          return '{% if security_score < 30 %}Kritik Xavf{% elif security_score < 40 %}Yuqori Xavf{% elif security_score < 60 %}O'rta Xavf{% else %}Past Xavf{% endif %}';
         },
         color: 'rgba(255, 255, 255, 1)',
         backgroundColor: 'rgba(0, 0, 0, 1)',

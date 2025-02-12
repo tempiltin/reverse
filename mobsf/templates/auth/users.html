@@ -18,12 +18,12 @@ sidebar-collapse
                   <div class="h-100 d-flex align-items-center justify-content-center">
                      <div class="">
                         <div class="login-logo">
-                           <a href="">User Management</a>  <a href="{% url 'create_user' %}" id="add_user" class="btn btn-success" role="button"><i class="fa fa-user"></i> Add User</a>
+                           <a href="">Foydalanuvchi boshqaruvi</a>  <a href="{% url 'create_user' %}" id="add_user" class="btn btn-success" role="button"><i class="fa fa-user"></i> Add User</a>
                         </div>
                         <div class="card">
                            <div class="card-body login-card-body">
                             {% if not users %}
-                            <h3>No Users Available</h3>
+                            <h3>Foydalanuvchilar mavjud emas</h3>
                             {% else %}
                             <div class="table-responsive">
                                 <table class="table table-responsive-md">

@@ -2,3 +2,7 @@ docker pull opensecurity/mobile-security-framework-mobsf:latest
 docker run -it --rm -p 8000:8000 opensecurity/mobile-security-framework-mobsf:latest
 
 # Default username and password: mobsf/mobsf
+
+
+Translate the text inside the tags to Uzbek, keeping the values inside {} and {{}} unchanged. Replace "MobSF" with "Lochin".
+templates/general/apidocs.html translate bo'ldi
